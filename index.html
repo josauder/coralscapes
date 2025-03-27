@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Scalable Semantic 3D Mapping of Coral Reefs with Deep Learning">
+  <meta property="og:title" content="Scalable Semantic 3D Mapping of Coral Reefs with Deep Learning" />
+  <meta property="og:description" content="Scalable Semantic 3D Mapping of Coral Reefs with Deep Learning" />
+  <meta property="og:url" content="http://josauder.github.io/coralscapes" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="The Coralscapes Dataset: Semantic Scene Understanding in Coral Reefs">
+  <meta name="twitter:description" content="The Coralscapes Dataset: Semantic Scene Understanding in Coral Reefs">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="science,scuba diving,deep learning,ai,red sea,israel,djibouti,jordan,sudan,coral reef">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Coralscapes</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><b>The Coralscapes Dataset:</b> <br>
+              Semantic Scene Understanding<br> in Coral Reefs</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://josauder.github.io/" target="_blank">Jonathan Sauder</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=SuIUw7gAAAAJ&hl=en" target="_blank">Viktor
+                  Domazetoski</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=ApxnBkYAAAAJ&hl=en&oi=ao" target="_blank">Guilhem
+                  Banc-Prandi</a><!--<sup>*</sup>-->,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=W5cZVtQAAAAJ&hl=en&oi=ao" target="_blank">Gabriela
+                  Perna,</a>
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=6sXSYJMAAAAJ&hl=en&oi=ao" target="_blank">Anders
+                  Meibom,</a>
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=p3iJiLIAAAAJ&hl=en&oi=ao" target="_blank">Devis
+                  Tuia</a>
+              </span>
+              <br>
+              <span><sup>*</sup> Equal Contribution</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <p><br></p>
+                <a href="http://epfl.ch"><img src="static/images/epfl_bw.png" width="200px" margin-left="20px"
+                    margin-right="20px" alt="EPFL Logo" /></a>
+              </span>
+              <a href="http://trsc.org"><img src="static/images/trsc_bw.png" width="200px" margin-left="20px"
+                  margin-right="20px" alt="TRSC Logo" /></a>
+              <a href="http://www.epfl.ch/labs/eceo/"><img src="static/images/eceo_bw.png" width="200px"
+                  margin-left="20px" margin-right="20px" alt="ECEO Logo" /></a></span>
+            </div>
+            <!---TODO ECEO LOGO, and change logo from red/white invert, put pipeline image-->
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2503.20000" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>ArXiv Pre-Print</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/eceo-epfl/coralscapesScripts" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/spaces/EPFL-ECEO/coralscapes_demo" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/huggingface.svg" height="100px">
+                    </span>
+                    <span>Demo</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/EPFL-ECEO/coralscapes" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-arrow-down"></i>
+                    </span>
+                    <span>Download Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop width="100%">
+          <!-- Your video here -->
+          <source src="static/videos/trimmed_trimmed_smaller.mp4" type="video/mp4">
+        </video>
+        <img src="static/images/legend.png" alt="Legend of Coralscapes Classes" width="100%" />
+      </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Coralscapes</h2>
+          <h2 class="subtitle has-text-centered">
+            The Coralscapes dataset is the first general-purpose dense semantic segmentation dataset for coral reefs.
+            Similar in scope and with the same structure as the widely used Cityscapes dataset for urban scene
+            understanding, Coralscapes allows for the benchmarking of semantic segmentation models in a new challenging
+            domain.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h4 class="title is-3 has-text-centered">Easy to use:</h2>
+          </div>
+        </div>
+        <p>Use with the <a href="https://huggingface.co/docs/datasets/en/installation" target="_blank"><code>datasets</code></a> package in Python:</p>
+        <pre><code>from datasets import load_dataset
+dataset = load_dataset("EPFL-ECEO/coralscapes")
+image = dataset["test"][0]["image"]
+label = dataset["test"][0]["label"]</code></pre>
+    </div>
+  </section>
+  <section class="section  hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-three-fifths">
+          <h2 class="title is-3 has-text-centered">2075 Images, 39 Classes, <br>174000 Annotations, 5 Countries</h2>
+        </div>
+      </div>
+      <img src="static/images/polygon_counts_colored.png" alt="Legend of Coralscapes Classes" width="100%" />
+    </div>
+  </section>
+
+
+  <!-- End paper abstract -->
+
+
+  <!-- Image carousel -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel has-text-centered">
+
+          
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/0.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/100.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/48.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/2.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/102.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/109.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/4.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/104.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/42.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/6.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/106.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/40.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/9.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/108.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/36.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/11.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/110.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/33.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/17.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/112.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/28.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/14.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/114.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/26.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/16.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/116.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+          <div class="item">
+            <img src="static/images/nice_screenshots_scaled/24.jpg" alt="Screenshots from DeepReefMap 3D Reconstruction" width="100%" />
+            <h2 class="subtitle has-text-centered">Examples from Coralscapes</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- End image carousel -->
+
+
+
+
+
+  <!-- Video carousel
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Robust to Challenging Scenes</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-video1 has-text-centered">
+            <video poster="" id="video1" autoplay controls muted loop width="80%">
+              <source src="static/videos/diver_demo_fast_480.mov" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">
+              Robust to challenging caustics
+            </h2>
+          </div>
+          <div class="item item-video2 has-text-centered">
+            <video poster="" id="video2" autoplay controls muted loop width="80%">
+              <source src="static/videos/bad_vis_fast_480.mov" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">
+              Robust to low visibility
+            </h2>
+          </div>
+          <div class="item item-video3 has-text-centered">
+            <video poster="" id="video3" autoplay controls muted loop width="80%">
+              <source src="static/videos/deeper_reefs_demo_480.mov" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">
+              Robust to poor contrasts in deep waters
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Transnational Red Sea Center</h2>
+        <div class="content has-text-justified">
+          <p>The <u><a href="http://trsc.org">Transnational Red Sea Center</a></u> is a scientific research center
+            created in 2019 at the Ecole Polytechnique fédérale in Lausanne (EPFL) with the official support of the
+            Swiss Foreign Ministry. An independent and not-for-profit organization, the Center capitalizes on
+            Switzerland’s neutrality, its longstanding tradition of promoting dialogue and its reputation for scientific
+            excellence in order to bridge science and diplomacy for the future of coral reefs. In the Red Sea and
+            beyond.</p>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+
+            <div class="publication-video">
+              <iframe src="https://player.vimeo.com/video/903195229?h=011769df67" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+              <p><a href="https://vimeo.com/903195229">The Seven Brothers Mission / November 2023</a> from <a
+                  href="https://vimeo.com/trsc">TRSC</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{sauder2025coralscapesdatasetsemanticscene,
+        title={The Coralscapes Dataset: Semantic Scene Understanding in Coral Reefs}, 
+        author={Jonathan Sauder and Viktor Domazetoski and Guilhem Banc-Prandi and Gabriela Perna and Anders Meibom and Devis Tuia},
+        year={2025},
+        eprint={2503.20000},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2503.20000}, 
+  }</code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the of this website, we just ask that you link back to this page in the footer.
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
